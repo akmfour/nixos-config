@@ -5,7 +5,7 @@
 # settings here. Extensions can still be added from the UI
 # (mutableExtensionsDir stays true), but anything you want to keep should go
 # in the list below.
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 let
   doki-theme = pkgs.vscode-utils.extensionFromVscodeMarketplace {
     publisher = "unthrottled";
@@ -17,7 +17,10 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    # From nixos-unstable: vscode 1.144.0 on nixos-26.05 fails in postPatch
+    # (bundled ripgrep moved to @vscode/ripgrep-universal; fixed on unstable,
+    # not yet backported). Switch back to pkgs.vscode once 26.05 builds.
+    package = pkgs-unstable.vscode;
 
     profiles.default = {
       enableUpdateCheck = false;

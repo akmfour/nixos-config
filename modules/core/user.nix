@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   username,
   host,
@@ -16,6 +17,7 @@
     extraSpecialArgs = {
       inherit
         inputs
+        pkgs-unstable
         username
         host
         profile
