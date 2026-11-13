@@ -1,20 +1,10 @@
 {
-
-  # Program Options
-  browser = "google-chrome-stable"; # Set Default Browser (google-chrome-stable for google-chrome)
-  terminal = "ghostty"; # Set Default System Terminal
+  browser = "brave"; # package name, also exported as $BROWSER
+  terminal = "ghostty";
   keyboardLayout = "us";
   consoleKeyMap = "us";
 
-  # For Nvidia Prime support
-  #intelID = "PCI:1:0:0";
-  #nvidiaID = "PCI:0:2:0";
-
-  # Enable NFS
-  enableNFS = true;
-
-  # Enable Printing Support
-  printEnable = false;
-
-
+  # For the nvidia-laptop profile only:
+  # intelID = "PCI:0:2:0";
+  # nvidiaID = "PCI:1:0:0";
 }

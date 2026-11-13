@@ -4,22 +4,23 @@
   config,
   ...
 }:
-with lib; let
+let
   cfg = config.drivers.intel;
-in {
+in
+{
   options.drivers.intel = {
-    enable = mkEnableOption "Enable Intel Graphics Drivers";
+    enable = lib.mkEnableOption "Intel graphics drivers";
   };
 
-  config = mkIf cfg.enable {
-    # OpenGL
-    hardware.graphics = {
-      extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
-    };
+  config = lib.mkIf cfg.enable {
+    # Gen12+ iGPUs (Alder Lake / Raptor Lake): VA-API via intel-media-driver
+    # (iHD) and oneVPL (Quick Sync) via vpl-gpu-rt. The old
+    # intel-vaapi-driver (i965, formerly `vaapiIntel`) only covers <= Gen9.
+    hardware.graphics.extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+      libvdpau-va-gl
+    ];
+    environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
   };
 }

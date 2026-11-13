@@ -1,4 +1,5 @@
-_: {
+{ ... }:
+{
   security = {
     rtkit.enable = true;
     polkit = {
@@ -14,9 +15,6 @@ _: {
           { return polkit.Result.YES; }
         })
       '';
-    };
-    pam.services.swaylock = {
-      text = ''auth include login '';
     };
   };
 }

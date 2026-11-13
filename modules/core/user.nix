@@ -5,38 +5,45 @@
   host,
   profile,
   ...
-}: {
+}:
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-  imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs username host profile;};
+    extraSpecialArgs = {
+      inherit
+        inputs
+        username
+        host
+        profile
+        ;
+    };
     users.${username} = {
-      imports = [./../home];
+      imports = [ ./../home ];
       home = {
-        username = "${username}";
+        username = username;
         homeDirectory = "/home/${username}";
-        stateVersion = "25.05";
+        # home.stateVersion is set per host in hosts/<host>/default.nix.
       };
     };
   };
+
+  programs.fish.enable = true;
+
   users.mutableUsers = true;
   users.users.${username} = {
     isNormalUser = true;
-    description = "${username}";
+    description = username;
     extraGroups = [
-      "adbusers"
-      "docker"
-      "libvirtd"
       "lp"
       "networkmanager"
       "scanner"
       "wheel"
     ];
-    shell = pkgs.zsh;
-    ignoreShellProgramCheck = true;
+    shell = pkgs.fish;
   };
-  nix.settings.allowed-users = ["${username}"];
+  nix.settings.allowed-users = [ username ];
 }
