@@ -39,6 +39,10 @@
           host = "devops";
           profile = "intel";
         };
+        latitude = mkHost {
+          host = "latitude";
+          profile = "intel";
+        };
       };
     };
 }
