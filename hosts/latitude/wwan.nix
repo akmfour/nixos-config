@@ -23,6 +23,15 @@
 #        ];
 #   4. If there is no script, Dell's own unlock tool for Linux is the
 #      remaining option; it is not packaged here.
+#
+# eSIM: slot 1 is the physical SIM tray, slot 2 the built-in eSIM.
+# `lpac` downloads carrier profiles over MBIM (through ModemManager's proxy):
+#   export LPAC_APDU=mbim LPAC_APDU_MBIM_DEVICE=/dev/wwan0mbim0 LPAC_APDU_MBIM_USE_PROXY=1
+#   lpac chip info
+#   lpac profile download -a 'LPA:1$<smdp>$<matching-id>'
+#   lpac profile list; lpac profile enable <iccid>
+# Then make slot 2 active (`mmcli -m 0 --set-primary-sim-slot=2`) and add the
+# APN connection (nm-applet wizard or `nmcli connection add type gsm ...`).
 { pkgs, ... }:
 {
   networking.modemmanager.enable = true;
@@ -43,6 +52,7 @@
   environment.systemPackages = with pkgs; [
     libqmi # qmicli
     libmbim # mbimcli
+    lpac # eSIM profile manager (LPA)
     modem-manager-gui
   ];
 }

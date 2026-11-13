@@ -20,7 +20,10 @@ The user writes in Chinese: answer in Chinese.
   `latitude` (Dell Latitude 7340 2-in-1, installed, real `hardware.nix`).
 - latitude WWAN: MediaTek T700 (`14c3:4d75`, driver `mtk_t7xx`, MBIM). COSMIC 1.2 has no mobile
   broadband UI, so `nm-applet --indicator` provides the toggle/APN wizard and ModemManager starts at
-  boot (`hosts/latitude/wwan.nix`).
+  boot (`hosts/latitude/wwan.nix`). Modem, driver and ModemManager work. SIM slot 1 = physical tray
+  (empty), slot 2 = eSIM. The user plans to use eSIM but has no carrier profile yet, so `mmcli -m 0`
+  shows `failed: sim-missing` and nmcli shows `unavailable`; that is expected, not a fault. When the
+  activation code arrives: `lpac` (installed) to download the profile, switch to slot 2, add APN.
 - User `dev`, shell fish. nixpkgs `nixos-26.05`; `pkgs-unstable` (nixos-unstable) only for vscode
   and claude-code.
 - Desktop COSMIC + cosmic-greeter. The user does NOT want SDDM. Animated login/lock backgrounds are
