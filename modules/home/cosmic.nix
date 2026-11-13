@@ -29,6 +29,10 @@ let
   wallpaperDir = "/home/${username}/Pictures/wallpapers";
 in
 {
+  # Keep the screen reader flag off, so a stray Super+Alt+S does not stick
+  # across logins (Orca itself is disabled in modules/core/desktop.nix).
+  dconf.settings."org/gnome/desktop/a11y/applications".screen-reader-enabled = false;
+
   wayland.desktopManager.cosmic = {
     enable = true;
 
