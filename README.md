@@ -159,3 +159,13 @@ reference them by path at runtime, for example `credentials=/home/devops/.config
 - **SFP NIC (devops):** `hosts/devops/default.nix` has a commented `ixgbe allow_unsupported_sfp` hint.
 - **k3s:** the kubeconfig is `/etc/rancher/k3s/k3s.yaml` (root only). Use `sudo k3s kubectl get nodes`,
   or copy the file to `~/.kube/config`.
+
+## Project templates
+
+Each template has a devShell and an `.envrc` with `use flake`, so direnv loads it on `cd`.
+
+```sh
+mkdir myproj && cd myproj
+nix flake init -t ~/nixos-config#c        # or #zig, #python
+git init && git add . && direnv allow
+```

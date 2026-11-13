@@ -37,6 +37,22 @@
       # `nix fmt` formats every .nix file in the repo.
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
+      # nix flake init -t ~/nixos-config#<name>
+      templates = {
+        c = {
+          path = ./templates/c;
+          description = "C project: make, cmake, gdb, valgrind, clangd, bear";
+        };
+        zig = {
+          path = ./templates/zig;
+          description = "Zig project: zig, zls";
+        };
+        python = {
+          path = ./templates/python;
+          description = "Python project: python3, uv, ruff";
+        };
+      };
+
       nixosConfigurations = {
         devops = mkHost {
           host = "devops";
