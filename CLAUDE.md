@@ -16,9 +16,11 @@ The user writes in Chinese: answer in Chinese.
 
 ## Facts
 
-- Hosts: `devops` (this test machine: Pentium Gold 8505, UHD iGPU, 4x I226-V, UEFI, btrfs) and
-  `latitude` (Dell Latitude 7340 2-in-1, not installed yet, `hosts/latitude/hardware.nix` is a
-  placeholder that fails the build on purpose).
+- Hosts: `devops` (test machine: Pentium Gold 8505, UHD iGPU, 4x I226-V, UEFI, btrfs) and
+  `latitude` (Dell Latitude 7340 2-in-1, installed, real `hardware.nix`).
+- latitude WWAN: MediaTek T700 (`14c3:4d75`, driver `mtk_t7xx`, MBIM). COSMIC 1.2 has no mobile
+  broadband UI, so `nm-applet --indicator` provides the toggle/APN wizard and ModemManager starts at
+  boot (`hosts/latitude/wwan.nix`).
 - User `dev`, shell fish. nixpkgs `nixos-26.05`; `pkgs-unstable` (nixos-unstable) only for vscode
   and claude-code.
 - Desktop COSMIC + cosmic-greeter. The user does NOT want SDDM. Animated login/lock backgrounds are
