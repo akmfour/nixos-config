@@ -8,7 +8,7 @@ Based on [xirin-nixos](https://github.com/bintis/xirin-nixos) by Bintis Soraphyr
 
 | Host       | Machine                                                       | Profile |
 | ---------- | ------------------------------------------------------------- | ------- |
-| `devops`   | Test machine, Pentium Gold 8505, UHD iGPU, multiple NICs/SFP  | `intel` |
+| `devops`   | Test machine, Pentium Gold 8505, UHD iGPU, 4x I226-V 2.5GbE    | `intel` |
 | `latitude` | Dell Latitude 7340 2-in-1, i7-1365U, Iris Xe, DW5931e 5G WWAN | `intel` |
 
 - nixpkgs `nixos-26.05`, home-manager `release-26.05`, kernel `linuxPackages_latest`
@@ -156,7 +156,6 @@ reference them by path at runtime, for example `credentials=/home/dev/.config/ni
 
 - **WWAN (latitude):** see `hosts/latitude/wwan.nix`. `mmcli -L` should list the modem. FCC unlock is
   not enabled, and the file describes how to handle it.
-- **SFP NIC (devops):** `hosts/devops/default.nix` has a commented `ixgbe allow_unsupported_sfp` hint.
 - **k3s:** the kubeconfig is `/etc/rancher/k3s/k3s.yaml` (root only). Use `sudo k3s kubectl get nodes`,
   or copy the file to `~/.kube/config`.
 

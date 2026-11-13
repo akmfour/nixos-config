@@ -1,5 +1,5 @@
 # Test / dev machine — Intel Pentium Gold 8505 (Alder Lake), UHD iGPU,
-# 16 GB, several NICs including SFP. UEFI.
+# 16 GB, 4x Intel I226-V 2.5GbE. UEFI.
 { inputs, username, ... }:
 {
   imports = [
@@ -8,11 +8,9 @@
     inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only # microcode
   ];
 
-  # All NICs are handled by NetworkManager with DHCP (modules/core/network.nix).
-  #
-  # SFP NIC: if it is an Intel X520/X710 (ixgbe / i40e) and a third-party
-  # SFP+ module is refused ("unsupported SFP+ module type" in dmesg), allow it:
-  # boot.extraModprobeConfig = "options ixgbe allow_unsupported_sfp=1";
+  # NICs: 4x Intel I226-V 2.5GbE (igc driver, in-tree). All handled by
+  # NetworkManager with DHCP (modules/core/network.nix). No SFP controller
+  # shows up in lspci.
 
   # Local single-node k3s for experiments.
   dev.k8s.k3s.enable = true;
