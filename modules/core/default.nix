@@ -2,6 +2,7 @@
 {
   imports = [
     ./boot.nix
+    ./btrfs.nix
     ./bluetooth.nix
     ./desktop.nix
     ./flatpak.nix
