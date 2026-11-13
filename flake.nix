@@ -7,7 +7,11 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      # Only its modules are used; don't fetch a second nixpkgs.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
