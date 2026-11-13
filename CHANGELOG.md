@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-11-13 — IDE and theme
+
+- VS Code (Home Manager) with extensions for C, Python, Zig, containers,
+  Kubernetes, Ansible, Nix; Doki Theme "Re:Zero: Emilia" (light).
+- COSMIC via cosmic-manager: light mode, soft gray background, lavender
+  purple accent, wallpapers rotated from ~/Pictures/wallpapers (not in repo).
+- Ghostty with a matching light lavender palette.
+
 ## 2026-11-13 — initial multi-host setup
 
 Forked from [xirin-nixos](https://github.com/bintis/xirin-nixos) (ZaneyOS +

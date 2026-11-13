@@ -7,6 +7,14 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Declarative COSMIC settings (theme, wallpaper) for Home Manager.
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
       # Only its modules are used; don't fetch a second nixpkgs.

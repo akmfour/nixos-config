@@ -22,7 +22,10 @@
         ;
     };
     users.${username} = {
-      imports = [ ./../home ];
+      imports = [
+        inputs.cosmic-manager.homeManagerModules.cosmic-manager
+        ./../home
+      ];
       home = {
         username = username;
         homeDirectory = "/home/${username}";
