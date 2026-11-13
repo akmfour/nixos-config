@@ -20,8 +20,6 @@
   services.power-profiles-daemon.enable = true;
   services.thermald.enable = true;
 
-  services.fwupd.enable = true;
-
   # 2-in-1: accelerometer for automatic screen rotation.
   hardware.sensor.iio.enable = true;
 

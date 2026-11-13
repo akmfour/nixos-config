@@ -2,6 +2,14 @@
 {
   services = {
     fstrim.enable = true;
+    fwupd.enable = true; # firmware updates: `fwupdmgr refresh && fwupdmgr update`
+    printing.enable = true;
+    # mDNS: finds network printers (IPP Everywhere / AirPrint) without drivers.
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     openssh = {
       enable = true;
       settings.PermitRootLogin = "no";
