@@ -27,6 +27,19 @@
 {
   networking.modemmanager.enable = true;
 
+  # Start ModemManager at boot. Upstream only D-Bus-activates it, so it
+  # stays down until something asks for it and a new SIM may not show up.
+  # Cheap: the modem itself stays PCI runtime-suspended while idle.
+  systemd.services.ModemManager.wantedBy = [ "multi-user.target" ];
+
+  # COSMIC 1.2's network applet has no mobile broadband UI (WWAN is only
+  # touched by airplane mode). nm-applet in the status area gives an
+  # "Enable Mobile Broadband" toggle and the new-connection (APN) wizard.
+  programs.nm-applet = {
+    enable = true;
+    indicator = true; # StatusNotifierItem, shown in COSMIC's status area
+  };
+
   environment.systemPackages = with pkgs; [
     libqmi # qmicli
     libmbim # mbimcli
