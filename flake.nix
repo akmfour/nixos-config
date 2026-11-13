@@ -21,7 +21,6 @@
       mkHost =
         { host, profile }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
             inherit
               inputs
@@ -30,7 +29,10 @@
               profile
               ;
           };
-          modules = [ ./profiles/${profile} ];
+          modules = [
+            { nixpkgs.hostPlatform = system; }
+            ./profiles/${profile}
+          ];
         };
     in
     {
