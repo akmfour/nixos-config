@@ -30,10 +30,7 @@ The user writes in Chinese: answer in Chinese.
 
 ## Open issues (investigate on this machine)
 
-1. **COSMIC accent/colors not applied** (the wallpaper is). Check
-   `~/.config/cosmic/com.system76.CosmicTheme.{Mode,Light.Builder,Light}/`, the version dirs
-   (cosmic-manager writes Builder v2), whether `cosmic-ext-ctl build-theme` ran
-   (`journalctl -b -u home-manager-dev.service`), and the light vs dark mode.
+None right now.
 
 ## Resolved
 
@@ -42,3 +39,6 @@ The user writes in Chinese: answer in Chinese.
   Fixed by `services.orca.enable = false` (`modules/core/desktop.nix`) and a dconf override in
   `modules/home/cosmic.nix`. If keys act up again, check `dconf read
   /org/gnome/desktop/a11y/applications/screen-reader-enabled` first.
+- **COSMIC accent/colors not applied**: cosmic-manager writes `Light.Builder` as v2, COSMIC 1.2
+  reads v1. Pinned to v1 with `lib.mkForce 1` in `modules/home/cosmic.nix`; remove the pin when
+  COSMIC moves to Builder v2 (then the v1 dir goes stale instead).

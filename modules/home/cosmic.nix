@@ -7,7 +7,7 @@
 #
 # Fallback palette if the purple doesn't look right: swap `accent` for
 # aqua (0.30, 0.72, 0.80) and `neutral_tint` for (0.50, 0.57, 0.60).
-{ username, ... }:
+{ lib, username, ... }:
 let
   # RON `Some(Srgb(...))` helper for cosmic-manager.
   rgb = red: green: blue: {
@@ -74,6 +74,12 @@ in
       }
     ];
   };
+
+  # cosmic-manager writes the theme Builder as v2, but COSMIC 1.2 still reads
+  # Builder v1, so the accent/background were silently ignored. Pin it to v1;
+  # drop this once COSMIC itself moves to Builder v2.
+  wayland.desktopManager.cosmic.configFile."com.system76.CosmicTheme.Light.Builder".version =
+    lib.mkForce 1;
 
   # Make sure the folder exists so COSMIC has something to point at.
   systemd.user.tmpfiles.rules = [ "d ${wallpaperDir} 0755 - - -" ];
