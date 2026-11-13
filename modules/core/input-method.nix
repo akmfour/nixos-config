@@ -17,6 +17,27 @@ in
         fcitx5-chewing # Zhuyin (Bopomofo)
       ];
       # Preset input method group: keyboard, Mozc, Pinyin, Chewing.
+      # Defaults on a fresh home; an existing ~/.config/fcitx5 takes precedence.
+      settings.globalOptions = {
+        # Alt+Shift toggles the input method (fcitx5 default is Ctrl+Space).
+        "Hotkey/TriggerKeys" = {
+          "0" = "Alt+Shift+Shift_L";
+          "1" = "Zenkaku_Hankaku";
+          "2" = "Hangul";
+        };
+      };
+      # Pinyin outputs Traditional Chinese (OpenCC). Ctrl+Shift+F toggles it.
+      settings.addons.chttrans = {
+        globalSection = {
+          Engine = "OpenCC";
+          OpenCCS2TProfile = "default";
+          OpenCCT2SProfile = "default";
+        };
+        sections = {
+          Hotkey."0" = "Control+Shift+F";
+          EnabledIM."0" = "pinyin";
+        };
+      };
       settings.inputMethod = {
         GroupOrder."0" = "Default";
         "Groups/0" = {
