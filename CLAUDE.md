@@ -30,15 +30,15 @@ The user writes in Chinese: answer in Chinese.
 
 ## Open issues (investigate on this machine)
 
-1. **Keyboard input turns into shortcuts while typing** (top priority). The cause is probably an
-   interaction between fcitx5 and COSMIC (or fcitx5 hotkeys). Known cosmic-comp IME bugs:
-   pop-os/cosmic-comp#2952 (Electron apps swallow keys), #2947 (text-input-v3 swallows keys with
-   pinyin), #1763. Find out which app, which IM, which keys, and whether `keyboard-us` alone
-   reproduces it. Check `fcitx5-diagnose`, `~/.config/fcitx5/config` (hotkeys), and stuck
-   modifiers (`wev` / `libinput debug-events` are useful).
-2. **COSMIC accent/colors not applied** (the wallpaper is). Check
+1. **COSMIC accent/colors not applied** (the wallpaper is). Check
    `~/.config/cosmic/com.system76.CosmicTheme.{Mode,Light.Builder,Light}/`, the version dirs
    (cosmic-manager writes Builder v2), whether `cosmic-ext-ctl build-theme` ran
    (`journalctl -b -u home-manager-dev.service`), and the light vs dark mode.
-3. **flake.lock** has local changes (cosmic-manager + nixpkgs-unstable inputs added) that still
-   need to be committed.
+
+## Resolved
+
+- **Typing turned into shortcuts**: not fcitx5. The Orca screen reader was on
+  (`screen-reader-enabled`, toggled by Super+Alt+S) and took letter keys as navigation commands.
+  Fixed by `services.orca.enable = false` (`modules/core/desktop.nix`) and a dconf override in
+  `modules/home/cosmic.nix`. If keys act up again, check `dconf read
+  /org/gnome/desktop/a11y/applications/screen-reader-enabled` first.
