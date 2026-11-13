@@ -10,9 +10,6 @@
       enable = profile != "vm";
       autodetect = true;
     };
-
-    desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
   };
 
   # Shutdown / stop timeouts: systemd defaults on purpose. The template's

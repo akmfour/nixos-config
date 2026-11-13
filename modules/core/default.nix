@@ -3,6 +3,7 @@
   imports = [
     ./boot.nix
     ./bluetooth.nix
+    ./desktop.nix
     ./flatpak.nix
     ./fonts.nix
     ./hardware.nix
