@@ -1,5 +1,5 @@
 {
-  description = "devops's NixOS configuration (based on xirin-nixos / ZaneyOS)";
+  description = "Multi-host NixOS configuration (based on xirin-nixos / ZaneyOS)";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -14,7 +14,7 @@
     { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
-      username = "devops";
+      username = "dev";
 
       # One nixosConfiguration per host. `host` selects hosts/<host>/,
       # `profile` selects profiles/<profile>/ (GPU / VM drivers).

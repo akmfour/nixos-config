@@ -12,7 +12,7 @@ Based on [xirin-nixos](https://github.com/bintis/xirin-nixos) by Bintis Soraphyr
 | `latitude` | Dell Latitude 7340 2-in-1, i7-1365U, Iris Xe, DW5931e 5G WWAN | `intel` |
 
 - nixpkgs `nixos-26.05`, home-manager `release-26.05`, kernel `linuxPackages_latest`
-- User `devops`, shell fish (starship, zoxide, eza, bat, yazi)
+- User `dev`, shell fish (starship, zoxide, eza, bat, yazi)
 - COSMIC + cosmic-greeter, PipeWire, Bluetooth
 - fcitx5 (Wayland frontend): Mozc, Pinyin, Chewing
 - Timezone `Asia/Tokyo`, locale `en_US.UTF-8` plus `zh_TW`, `zh_CN`, `ja_JP`
@@ -137,7 +137,7 @@ fish abbreviations: `rebuild`, `update`, `cleanup`.
 This repo is public. Never commit passwords, private keys, tokens, internal IPs, or VPN/proxy configs.
 
 Today, secrets live **outside** the repo, in `~/.config/nixos-secrets/` (`chmod 600`), and modules
-reference them by path at runtime, for example `credentials=/home/devops/.config/nixos-secrets/foo`.
+reference them by path at runtime, for example `credentials=/home/dev/.config/nixos-secrets/foo`.
 
 ### Adding secrets later
 
