@@ -10,6 +10,7 @@
     ./fish.nix
     ./ghostty.nix
     ./gh.nix
+    ./git.nix
     ./mime.nix
     ./qt.nix
     ./scripts
