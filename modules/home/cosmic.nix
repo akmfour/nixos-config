@@ -1,6 +1,6 @@
 # COSMIC look: light mode, soft gray background, lavender-purple accent,
-# wallpapers from ~/Pictures/wallpapers (not in this repo: put your own
-# images there; every image in the folder is shown in rotation).
+# wallpaper ~/Pictures/wallpapers/murasakishion.png (not in this repo: the
+# image is copyrighted, copy it there by hand on a new machine).
 #
 # Managed by cosmic-manager. Settings set here are rewritten on every
 # switch, so change them in this file, not in COSMIC Settings.
@@ -32,6 +32,9 @@ let
   };
 
   wallpaperDir = "/home/${username}/Pictures/wallpapers";
+  # A single image. To rotate through every image in the folder instead,
+  # set this to wallpaperDir.
+  wallpaper = "${wallpaperDir}/murasakishion.png";
 in
 {
   # Keep the screen reader flag off, so a stray Super+Alt+S does not stick
@@ -79,7 +82,7 @@ in
         source = {
           __type = "enum";
           variant = "Path";
-          value = [ wallpaperDir ];
+          value = [ wallpaper ];
         };
         filter_by_theme = false;
         filter_method = {
@@ -94,7 +97,7 @@ in
           __type = "enum";
           variant = "Random";
         };
-        rotation_frequency = 900; # seconds
+        rotation_frequency = 300; # seconds, only used when the source is a folder
       }
     ];
   };
