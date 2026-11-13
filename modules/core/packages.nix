@@ -22,6 +22,7 @@ in
     pkgs.${terminal}
     android-tools # adb / fastboot (programs.adb was removed in 25.11)
     ffmpeg
+    haruna # Qt video player (mpv frontend)
     inxi
     killall
     lm_sensors
@@ -32,6 +33,7 @@ in
     remmina
     ripgrep
     sox
+    telegram-desktop
     unrar
     unzip
     usbutils
