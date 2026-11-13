@@ -14,7 +14,7 @@ Based on [xirin-nixos](https://github.com/bintis/xirin-nixos) by Bintis Soraphyr
 - nixpkgs `nixos-26.05`, home-manager `release-26.05`, kernel `linuxPackages_latest`
 - User `dev`, shell fish (starship, zoxide, eza, bat, yazi)
 - COSMIC + cosmic-greeter, PipeWire, Bluetooth
-- fcitx5 (Wayland frontend): Mozc, Pinyin, Chewing
+- fcitx5 (Wayland frontend): Mozc, Pinyin
 - Look: light COSMIC theme (gray + lavender purple), Ghostty and VS Code (Doki Theme "Emilia" light)
   to match, wallpapers from `~/Pictures/wallpapers` (your own images, not in the repo)
 - Timezone `Asia/Tokyo`, locale `en_US.UTF-8` plus `zh_TW`, `zh_CN`, `ja_JP`

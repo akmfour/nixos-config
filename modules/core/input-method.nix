@@ -14,9 +14,8 @@ in
         fcitx5-gtk
         fcitx5-mozc # Japanese
         qt6Packages.fcitx5-chinese-addons # Pinyin / Shuangpin / tables
-        fcitx5-chewing # Zhuyin (Bopomofo)
       ];
-      # Preset input method group: keyboard, Mozc, Pinyin, Chewing.
+      # Preset input method group: keyboard, Mozc, Pinyin.
       # Defaults on a fresh home; an existing ~/.config/fcitx5 takes precedence.
       settings.globalOptions = {
         # Alt+Shift toggles the input method (fcitx5 default is Ctrl+Space).
@@ -48,7 +47,6 @@ in
         "Groups/0/Items/0".Name = "keyboard-${keyboardLayout}";
         "Groups/0/Items/1".Name = "mozc";
         "Groups/0/Items/2".Name = "pinyin";
-        "Groups/0/Items/3".Name = "chewing";
       };
     };
   };

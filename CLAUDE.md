@@ -25,7 +25,7 @@ The user writes in Chinese: answer in Chinese.
   not supported by COSMIC yet (planned for epoch 3), and that is accepted.
 - COSMIC look is managed by cosmic-manager in `modules/home/cosmic.nix`. Wanted: light mode, gray +
   purple (aqua as fallback). The user chose to manage all of it declaratively.
-- Input method: fcitx5 with waylandFrontend, Mozc + Pinyin + Chewing, layout `us`
+- Input method: fcitx5 with waylandFrontend, Mozc + Pinyin, layout `us`
   (`modules/core/input-method.nix`).
 
 ## Open issues (investigate on this machine)
