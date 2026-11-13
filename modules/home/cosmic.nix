@@ -1,5 +1,5 @@
 # COSMIC look: light mode, soft gray background, lavender-purple accent,
-# wallpaper ~/Pictures/wallpapers/murasakishion.png (not in this repo: the
+# wallpaper ~/Pictures/wallpapers/104688124_p0.png (not in this repo: the
 # image is copyrighted, copy it there by hand on a new machine).
 #
 # Managed by cosmic-manager. Settings set here are rewritten on every
@@ -34,7 +34,7 @@ let
   wallpaperDir = "/home/${username}/Pictures/wallpapers";
   # A single image. To rotate through every image in the folder instead,
   # set this to wallpaperDir.
-  wallpaper = "${wallpaperDir}/murasakishion.png";
+  wallpaper = "${wallpaperDir}/104688124_p0.png";
 in
 {
   # Keep the screen reader flag off, so a stray Super+Alt+S does not stick
