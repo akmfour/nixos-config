@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Configure cursor theme for COSMIC DE
   home.pointerCursor = {
     name = "Bibata-Modern-Ice"; # You can change this to any cursor theme you prefer

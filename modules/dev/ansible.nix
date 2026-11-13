@@ -12,9 +12,11 @@ in
     enable = lib.mkEnableOption "Ansible" // {
       default = true;
     };
-    navigator.enable = lib.mkEnableOption "ansible-navigator + Podman for AAP execution environments" // {
-      default = true;
-    };
+    navigator.enable =
+      lib.mkEnableOption "ansible-navigator + Podman for AAP execution environments"
+      // {
+        default = true;
+      };
   };
 
   config = lib.mkIf cfg.enable (
