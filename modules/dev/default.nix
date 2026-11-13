@@ -11,5 +11,6 @@
     ./python.nix
     ./c.nix
     ./zig.nix
+    ./claude-code.nix
   ];
 }

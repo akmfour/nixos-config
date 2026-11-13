@@ -54,6 +54,7 @@ All on by default except k3s. Turn one off in `hosts/<host>/default.nix`, for ex
 | `dev.python`            | python3, uv, ruff                                                     |
 | `dev.c`                 | gcc, make, cmake, pkg-config, gdb, valgrind, clang-tools (clangd), bear |
 | `dev.zig`               | zig, zls                                                              |
+| `dev.claude-code`       | Claude Code CLI (from nixos-unstable)                                 |
 
 ## Adding a new machine
 
